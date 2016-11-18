@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "email": "german.guzelj@almundo.com",
+    "roles": [
+      "web.home.navigate",
+      "web.home.freelancers.admin"
+    ]
+  },
+  {
+    "id": 2,
+    "email": "german.guzelj@gmail.com",
+    "roles": [
+      "abaco.accounting.accounts.user",
+      "abaco.accounting.user"
+    ]
+  }
+]

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var cors = require('cors');
+var service = require('../service/rolesService');
 
 router.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3001");
@@ -11,11 +12,18 @@ router.use(cors());
 
 
 router.get('/', getAll);
+router.get('/:email/roles', getRolesForEmail);
 
 function getAll(req, res) {
-    res.send({id: 1, name: 'test'});
+    service.findAll(function (response) {
+        res.send(response);
+    })
 }
 
-
+function getRolesForEmail(req, res) {
+    service.findEmail(req.params.email, function (response) {
+        res.send(response);
+    })
+}
 
 module.exports = router;

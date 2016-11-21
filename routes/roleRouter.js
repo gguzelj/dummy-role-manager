@@ -20,8 +20,12 @@ function getAll(req, res) {
     })
 }
 
-function getRolesForEmail(req, res) {
-    service.findEmail(req.params.email, function (response) {
+function getRolesForEmail(req, res, next) {
+    service.findEmail(req.params.email, function (err, response) {
+        if (err) {
+            err.code = 400;
+            return next(err);
+        }
         res.send(response);
     })
 }

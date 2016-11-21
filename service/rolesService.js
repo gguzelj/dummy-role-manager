@@ -19,8 +19,9 @@ Service.findAll = function(callback) {
 Service.findEmail = function(email, callback) {
     for(var emailId in map){
         if (email == map[emailId].email)
-            callback(map[emailId].roles);
+            callback(null, map[emailId].roles);
     }
+    callback(new Error("No user with email " + email), null);
 };
 
 module.exports = Service;

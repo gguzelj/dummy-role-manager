@@ -1,3 +1,4 @@
+require('newrelic');
 // server.js
 
 // BASE SETUP
